@@ -1,0 +1,13 @@
+/* smart-table(https://github.com/lorenzofox3/Smart-Table) user styles */
+th[st-sort] {
+  cursor: pointer;
+}
+
+.st-sort-ascent::after {
+    font-family: FontAwesome;
+    content: "\00a0\f0d8";
+}
+.st-sort-descent::after {
+    font-family: FontAwesome;
+    content: "\00a0\f0dd";
+}

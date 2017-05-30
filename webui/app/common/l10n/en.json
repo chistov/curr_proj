@@ -1,0 +1,58 @@
+{
+  "COMMON": {
+    "KROZ_LOGO_TITLE": "System of registration and providing network legitimacy",
+    "NT_LOGO_TITLE": "CJSC \"NORSI-TRANS\"",
+    "NT_LOGO_HREF": "http://www.norsi-trans.com/",
+
+    "LOGIN_FORW": {
+      "TITLE": "Authentication",
+      "INPUT_LOGIN_PLACEHOLDER": "Login",
+      "INPUT_PASSW_PLACEHOLDER": "Password",
+      "BTN_LOGIN": "Log in",
+      "BTN_LOGOUT": "Log out",
+
+      "USER_INFO": "User",
+
+      "INPUT_LOGIN_EMPTY_ERR": "Enter login",
+      "INPUT_PASSW_EMPTY_ERR": "Enter password",
+      "LOGIN_ATTEMPT_ERR": "Incorrect login or password"
+    },
+
+    "NOTIFICATIONS": {
+      "TAB_MESSAGES": "Messages",
+      "BTN_CLOSE_ALL": "Close all",
+      "LABEL_NO_DATA": "No notifications"
+    },
+
+    "INPUT_DATETIME_PLACEHOLDER": "dd.mm.yyyy hh:mm:ss",
+    "INPUT_VALUE_PLACEHOLDER": "Value",
+
+    "LABEL_LOADING": "Loading...",
+    "LABEL_NO_DATA": "No data to show",
+    "LABEL_DISABLED": "Disabled",
+    "LABEL_MINUTES": "minutes",
+
+    "BTN_TODAY": "Today",
+    "BTN_CLEAR": "Clear",
+    "BTN_CLOSE": "Close",
+    "BTN_SAVE": "Save",
+    "BTN_APPLY": "Apply",
+    "BTN_CANCEL": "Cancel",
+    "BTN_SHOW": "Show",
+    "BTN_ADD": "Add",
+    "BTN_FILTER": "Filter",
+    "BTN_EDIT": "Edit",
+    "BTN_REMOVE": "Remove",
+
+
+    "BACKEND_NOTIFICATIONS": {
+      "TITLE_ERROR": "Error processing data",
+      "DB_CONNECT_ERROR": "Error connect to database",
+      "DB_NOT_CONNECTED_ERROR": "Not connected to database",
+      "DB_WORK_ERROR": "Error to work with database",
+      "NOT_HAVE_PERMISSIONS_ERROR": "You do not have permissions to do that",
+
+      "TITLE_HTML": "KROZ | NORSI-TRANS"
+    }
+  }
+}

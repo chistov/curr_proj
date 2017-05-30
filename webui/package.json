@@ -1,0 +1,14 @@
+{
+  "name": "KrozDDOS",
+  "version": "0.0.1",
+  "author": "Norsi-Trans JSC",
+  "private": true,
+  "description": "KROZ antiDDOS GUI from Norsi-Trans",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "less": "^2.5.1"
+  }
+}

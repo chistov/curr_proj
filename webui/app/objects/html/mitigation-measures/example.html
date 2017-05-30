@@ -1,0 +1,54 @@
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+angular.module('ddosObjects').controllerProvider.register('exampleMitigationMeasureController', [
+  '$scope',
+  function($scope) {
+
+  var config = {
+    needModal: true
+  };
+
+  $scope.measureParameters = $scope.$parent.measureParameters;
+  if ( angular.equals({}, $scope.measureParameters) ) {
+    // adding measure, fill defaults
+    $scope.measureParameters.dummy1 = true;
+    $scope.measureParameters.dummy2 = false;
+  }
+
+  $scope.apply = function() {
+    // additional logic here
+    $scope.$parent.apply();
+  };
+  $scope.cancel = function() {
+    $scope.$parent.cancel();
+  }
+
+  if (!config.needModal)
+    $scope.apply();
+}]);
+
+</script>
+
+<form class="measure-form" ng-submit="apply()" ng-controller="exampleMitigationMeasureController">
+
+  <div class="modal-header">
+    <h5 class="modal-title">EXAMPLE</h5>
+  </div>
+  <div class="modal-body">
+
+    <label class="checkbox-inline">
+      <input type="checkbox" ng-model="measureParameters.dummy1">dummy 1
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" ng-model="measureParameters.dummy2">dummy 2
+    </label>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary" translate>COMMON.BTN_APPLY</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="cancel()" translate>COMMON.BTN_CANCEL</button>
+  </div>
+
+</form>

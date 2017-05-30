@@ -1,0 +1,28 @@
+<style type="text/css">
+  .tab-content {
+    padding-top: 15px;
+  }
+</style>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" ui-sref-active="active">
+    <a ui-sref="objects.details.parameters" role="tab" translate>OBJECTS.TABSET.PARAMETERS.TITLE</a>
+  </li>
+  <li role="presentation" ui-sref-active="active">
+    <a ui-sref="objects.details.distributionList" role="tab" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE</a>
+  </li>
+  <li role="presentation" ui-sref-active="active" ng-hide="currentObject.creating">
+    <a ui-sref="objects.details.attackReports" role="tab" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE</a>
+  </li>
+  <li role="presentation" ui-sref-active="active" ng-hide="currentObject.creating">
+    <a ui-sref="objects.details.rules" role="tab" translate>OBJECTS.TABSET.RULES.TITLE</a>
+  </li>
+
+  <!-- not implemented yet -->
+  <li role="presentation" ui-sref-active="active" ng-hide="currentObject.creating">
+    <a ui-sref="network.analyzerTraffic({globalFilter: currentObject.ddosObject.value})" role="tab" translate>OBJECTS.TABSET.ANALYZER_TRAFFIC.TITLE</a>
+  </li>
+
+</ul>
+
+<div class="tab-content" ui-view></div>

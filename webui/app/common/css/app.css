@@ -1,0 +1,80 @@
+.panel-heading-additional {
+  margin: 0 5px;
+}
+
+.btn-xs.btn-panel-heading {
+  padding: 0 3px;
+  /*line-height: 1.3;*/
+}
+
+.col-compact {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.controls {
+  margin-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  /*border-bottom: 1px solid #ddd;*/
+}
+
+.panel-fullscreen {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+}
+
+.left-bordered {
+  border-left: 1px solid #eee;
+}
+
+.right-bordered {
+  border-right: 1px solid #eee;
+}
+
+.bottom-bordered {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.top-bordered {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.form-horizontal-left .control-label {
+  text-align: left;
+}
+
+.thead-sm > tr > th {
+  font-size: 12px;
+}
+
+th[st-sort] {
+  cursor: pointer;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.input-xs {
+  height: 22px;
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}

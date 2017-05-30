@@ -1,0 +1,214 @@
+// Variables
+// --------------------------------------------------
+@theme-bg:                       #3d99d8;
+
+@navbar-theme-color:             #eee;
+@navbar-theme-bg:                @theme-bg;
+@navbar-theme-bg-lighten:        #4eb1ea;
+@navbar-theme-border:            darken(@navbar-theme-bg, 6.5%);
+
+// Navbar logos
+@navbar-theme-company-logo:         "../img/nt-logo.png";
+@navbar-theme-company-logo-width:   283px;
+@navbar-theme-company-logo-height:  103px;
+
+@navbar-theme-brand-logo:           "../img/KROZ_logo2.png";
+@navbar-theme-brand-logo-width:     110px;
+@navbar-theme-brand-logo-height:    40px;
+@navbar-theme-brand-padding:        5px 15px;
+
+// Navbar links
+@navbar-theme-link-color:                #fff;
+@navbar-theme-link-hover-color:          darken(@navbar-theme-link-color, 5%);
+@navbar-theme-link-hover-bg:             darken(@navbar-theme-bg, 3%);
+@navbar-theme-link-active-color:         #eee;
+@navbar-theme-link-active-bg:            darken(@navbar-theme-bg, 6.5%);
+@navbar-theme-link-disabled-color:       #ccc;
+@navbar-theme-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-theme-brand-color:               @navbar-theme-link-color;
+@navbar-theme-brand-hover-color:         darken(@navbar-theme-brand-color, 10%);
+@navbar-theme-brand-hover-bg:            transparent;
+
+// Navbar toggle
+@navbar-theme-toggle-hover-bg:           #ddd;
+@navbar-theme-toggle-icon-bar-bg:        #888;
+@navbar-theme-toggle-border-color:       #ddd;
+
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     768px;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+
+// Alternate navbars
+// --------------------------------------------------
+
+// Navbar themed
+.navbar-theme {
+  margin-bottom: 0;
+  background-color: @navbar-theme-bg;
+  border-color: @navbar-theme-border;
+
+  background-image: -webkit-gradient(linear, left top, right top, from(@navbar-theme-bg-lighten), to(@navbar-theme-bg));
+  background-image: -webkit-linear-gradient(left, @navbar-theme-bg-lighten, @navbar-theme-bg);
+  background-image: -moz-linear-gradient(left, @navbar-theme-bg-lighten, @navbar-theme-bg);
+  background-image: -ms-linear-gradient(left, @navbar-theme-bg-lighten, @navbar-theme-bg);
+  background-image: -o-linear-gradient(left, @navbar-theme-bg-lighten, @navbar-theme-bg);
+
+  .container-fluid {
+    margin-right: @navbar-theme-company-logo-width;
+  }
+
+  .navbar-brand {
+    padding: @navbar-theme-brand-padding;
+
+    color: @navbar-theme-brand-color;
+    &:hover,
+    &:focus {
+      color: @navbar-theme-brand-hover-color;
+      background-color: @navbar-theme-brand-hover-bg;
+    }
+
+    > img,
+    > img::after {
+      content: url(@navbar-theme-brand-logo);
+    }
+
+    > div.logo {
+      background-image: url(@navbar-theme-brand-logo);
+      background-repeat: no-repeat;
+      width: @navbar-theme-brand-logo-width;
+      height: @navbar-theme-brand-logo-height;
+    }
+  }
+
+  .navbar-company {
+    background: url(@navbar-theme-company-logo) top left no-repeat;
+    width: @navbar-theme-company-logo-width;
+    height: @navbar-theme-company-logo-height;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  .navbar-text {
+    color: @navbar-theme-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: @navbar-theme-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-theme-link-hover-color;
+        background-color: @navbar-theme-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-theme-link-active-color;
+        background-color: @navbar-theme-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-theme-link-disabled-color;
+        background-color: @navbar-theme-link-disabled-bg;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: @navbar-theme-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-theme-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-theme-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @navbar-theme-border;
+  }
+
+  // Dropdown menu items
+  .navbar-nav {
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: @navbar-theme-link-active-bg;
+        color: @navbar-theme-link-active-color;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: @navbar-theme-link-color;
+          &:hover,
+          &:focus {
+            color: @navbar-theme-link-hover-color;
+            background-color: @navbar-theme-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-theme-link-active-color;
+            background-color: @navbar-theme-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-theme-link-disabled-color;
+            background-color: @navbar-theme-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Links in navbars
+  //
+  // Add a class to ensure links outside the navbar nav are colored correctly.
+
+  .navbar-link {
+    color: @navbar-theme-link-color;
+    &:hover {
+      color: @navbar-theme-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: @navbar-theme-link-color;
+    &:hover,
+    &:focus {
+      color: @navbar-theme-link-hover-color;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: @navbar-theme-link-disabled-color;
+      }
+    }
+  }
+}

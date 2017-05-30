@@ -1,0 +1,157 @@
+{
+  "OBJECTS": {
+    "NAV_TITLE": "Objects",
+    "BREADCRUMB_TITLE": "Objects",
+
+    "CONTROLS": {},
+
+    "TREE": {
+      "INPUT_FILTER_PLACEHOLDER": "Filter"
+    },
+
+    "TABSET": {
+      "PARAMETERS": {
+        "TITLE": "Parameters",
+
+        "LABEL_NEW": "New",
+        "NAME_NEW": "New object",
+        "LABEL_NAME": "Title",
+        "INPUT_NAME_PLACEHOLDER": "Title",
+
+        "LABEL_VALUE": "Value",
+        "INPUT_VALUE_PLACEHOLDER": "Value",
+
+        "TITLE_LEGITIMATE_BPS": "Harmless level (bps)",
+        "TITLE_LEGITIMATE_PPS": "Harmless level (pps)",
+        "TITLE_HIGH_SEVERITY_BPS": "High severity level (bps)",
+        "TITLE_HIGH_SEVERITY_PPS": "High severity level (pps)",
+
+        "CAPTION_LEVELS": "Attack detection levels and mitigation strategy",
+        "BTN_LEVELS_ADVANCED_FORM": "advanced",
+        "BTN_LEVELS_SIMPLE_FORM": "basic",
+
+        "TITLE_LEVEL": "Level",
+        "TITLE_LEVEL_ENABLED": "Active",
+        "TITLE_LEVEL_SIGNAL": "ALARM",
+        "TITLE_LEVEL_CLEAN": "FILTERING",
+        "TITLE_LEVEL_CRITICAL": "CRITICAL",
+        "TITLE_LEVEL_PROXY": "PROXY",
+
+        "TITLE_BLOCK_TIME_ATTACKER": "Attacker rule duration",
+        "TITLE_BLOCK_TIME_ATTACKED": "Attacked rule duration",
+
+        "TITLE_MODE_AVG": "Average exceeding ratio",
+        "UNITS_MODE_AVG": "(multiplier)",
+
+        "TITLE_MODE_MAX": "Maximum peak size",
+        "UNITS_MODE_MAX": "(value per second)",
+
+        "TITLE_MODE_ABNORMAL": "Filter abnormal traffic only",
+        "TITLE_MODE_PROXY": "Allow proxy mode",
+
+        "TITLE_DETECTION_LEVELS": "Detection levels",
+
+        "TITLE_MITIGATION_STRATEGY": "Mitigation strategy",
+        "TITLE_MITIGATION_MEASURES": "Mitigation measures",
+        "TITLE_MITIGATION_STAGE": "Stage",
+        "TITLE_MEASURES": "Measures",
+        "TITLE_MEASURE_ENABLED": "Enabled",
+        "TITLE_MEASURE_DETAILS": "Details",
+
+        "MITIGATION_STAGE_DETAILS": {
+            "TITLE": "Mitigation stage details",
+            "PERCENT_TITLE": "Mitigated percent",
+            "ENABLE_TIMEOUT_TITLE": "Enable timeout"
+        }
+      },
+
+      "EMAILING_LIST": {
+        "TITLE": "Notification list",
+
+        "CAPTION": "Attacks notification list",
+        "TITLE_IPMASK": "IP/mask",
+        "TITLE_EMAIL": "Email",
+        "TITLE_ON_ATTACK": "On attack",
+        "TITLE_REPORTS": "Reports",
+        "TITLE_ON_BLOCK": "Blocked",
+        "TITLE_CRITICAL_ONLY": "Critical only",
+        "TITLE_ATTACK_LEVEL": "Traffic speed (Mbit/s)"
+      },
+
+      "ATTACK_REPORTS": {
+        "TITLE": "Attack reports",
+
+        "LABEL_ON_PERIOD": "Period",
+        "CHECKBOX_ALL_TIME": "From start",
+
+        "LABEL_REPORTS_NUMBER": "Reports generated:",
+
+        "TITLE_DATE": "Date",
+        "TITLE_ATTACKS_TOTAL": "Attacks total amount",
+        "TITLE_ATTACKS_CRITICAL": "Critical attacks amount",
+        "TITLE_ATTACKERS_TOTAL": "Attackers",
+        "TITLE_ATTACKED_TOTAL": "Attacked",
+        "TITLE_ATTACK_LEVEL_AVG": "Average attack speed (bit/s)",
+        "TITLE_ATTACK_LEVEL_MAX": "Maximum attack speed (bit/s)",
+
+        "BTN_ATTACKS": "Attacks",
+        "LABEL_NO_REPORTS": "No reports for the period specified"
+      },
+
+      "RULES": {
+        "TITLE": "Active rules",
+
+        "LABEL_WHITE_LIST": "Whitelist",
+
+        "LABEL_RULES_NUMBER": "Active rules amount:",
+
+        "TITLE_BEGIN": "Start time",
+        "TITLE_DURATION": "Duration",
+        "TITLE_END": "End time",
+        "TITLE_TYPE": "Type",
+
+        "LABEL_NO_RULES": "No active rules",
+
+        "OPTION_DURATION_UNITS_SEC": "seconds",
+        "OPTION_DURATION_UNITS_MIN": "minutes",
+        "OPTION_DURATION_UNITS_HOUR": "hours",
+        "OPTION_DURATION_UNITS_DAYS": "days"
+      },
+
+      "ANALYZER_TRAFFIC": {
+        "TITLE": "Traffic analysis"
+      }
+    },
+
+    "MITIGATION_MEASURES": {
+        "SIGNATURE": {
+            "DST_PREFIX" : "Dst prefix",
+            "SRC_PREFIX" : "Src prefix",
+            "IP_PROTOCOL" : "IP proto",
+            "PORT": "Port",
+            "SRC_PORT": "Src port",
+            "DST_PORT": "Dst port",
+            "ICMP_TYPE": "ICMP type",
+            "ICMP_CODE": "ICMP code",
+            "TCP_FLAGS": "TCP Flags",
+            "PKT_LENGTH": "Packet length",
+            "TOS": "TOS",
+            "IP_FRAGMENT": "IP fragment",
+            "TTL": "TTL",
+            "REQUEST_USER": "Request user before signature appliement"
+        }
+    },
+
+    "BACKEND_NOTIFICATIONS": {
+      "TITLE_OBJECT_SAVE_SUCCESS": "Object parameters '%s' applied successfully",
+      "TITLE_OBJECT_CREATE_SUCCESS": "Object '%s' created successfully",
+      "TITLE_OBJECT_DELETE_SUCCESS": "Object(s) removed successfully",
+
+      "TITLE_WHITELIST_SAVE_SUCCESS": "Whitelist updated successfully",
+
+      "TITLE_RULE_ADD_SUCCESS": "Rule applied successfully",
+      "TITLE_RULE_DELETE_SUCCESS": "Rule(s) removed successfully",
+      "TITLE_RULE_UPDATE_SUCCESS": "Rule updated successfully"
+    }
+  }
+}

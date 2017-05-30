@@ -1,0 +1,59 @@
+{
+  "COMMON": {
+    "TITLE": "КРОЗ | НОРСИ-ТРАНС",
+
+    "KROZ_LOGO_TITLE": "Комплекс регистрации и обеспечения законности сети",
+    "NT_LOGO_TITLE": "ЗАО \"НОРСИ-ТРАНС\"",
+    "NT_LOGO_HREF": "http://www.norsi-trans.ru/",
+
+    "LOGIN_FORW": {
+      "TITLE": "Авторизация",
+      "INPUT_LOGIN_PLACEHOLDER": "Логин",
+      "INPUT_PASSW_PLACEHOLDER": "Пароль",
+      "BTN_LOGIN": "Войти",
+      "BTN_LOGOUT": "Выйти",
+
+      "USER_INFO": "Пользователь",
+
+      "INPUT_LOGIN_EMPTY_ERR": "Введите логин",
+      "INPUT_PASSW_EMPTY_ERR": "Введите пароль",
+      "LOGIN_ATTEMPT_ERR": "Неверное имя пользователя или пароль"
+    },
+    "NOTIFICATIONS": {
+      "TAB_MESSAGES": "Сообщения",
+      "BTN_CLOSE_ALL": "Закрыть все",
+      "LABEL_NO_DATA": "Уведомлений нет"
+    },
+
+    "INPUT_DATETIME_PLACEHOLDER": "дд.мм.гггг чч:мм:сс",
+    "INPUT_VALUE_PLACEHOLDER": "Значение",
+
+    "LABEL_LOADING": "Загрузка...",
+    "LABEL_NO_DATA": "Нет данных для отображения",
+    "LABEL_DISABLED": "Выключен",
+    "LABEL_MINUTES": "минуты",
+
+    "BTN_TODAY": "Сегодня",
+    "BTN_CLEAR": "Очистить",
+    "BTN_CLOSE": "Закрыть",
+    "BTN_SAVE": "Сохранить",
+    "BTN_APPLY": "Применить",
+    "BTN_CANCEL": "Отменить",
+    "BTN_SHOW": "Показать",
+    "BTN_ADD": "Добавить",
+    "BTN_FILTER": "Фильтр",
+    "BTN_EDIT": "Редактировать",
+    "BTN_REMOVE": "Удалить",
+
+
+    "BACKEND_NOTIFICATIONS": {
+      "TITLE_ERROR": "Ошибка работы с данными",
+      "DB_CONNECT_ERROR": "Ошибка подключения к базе данных",
+      "DB_NOT_CONNECTED_ERROR": "Отсутствует подключение к базе данных",
+      "DB_WORK_ERROR": "Ошибка при работе с базой данных",
+      "NOT_HAVE_PERMISSIONS_ERROR": "У вас нет прав для совершения этого действия",
+
+      "TITLE_HTML": "КРОЗ | НОРСИ-ТРАНС"
+    }
+  }
+}

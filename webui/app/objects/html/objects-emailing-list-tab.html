@@ -1,0 +1,63 @@
+<style type="text/css">
+</style>
+
+<form class="form-horizontal">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <p class="caption" translate>OBJECTS.TABSET.EMAILING_LIST.CAPTION</p>
+      <table st-table="attackEmailingTable.displayed" st-safe-src="currentObject.attackEmailing" class="table table-striped table-condensed table-hover table-form">
+        <thead class="thead-sm">
+          <tr>
+            <th class="text-center col-sm-2" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_IPMASK</th>
+            <th class="text-center col-sm-3" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_EMAIL</th>
+            <th class="text-center col-sm-1" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_ON_ATTACK</th>
+            <th class="text-center col-sm-1" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_REPORTS</th>
+            <th class="text-center col-sm-1" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_ON_BLOCK</th>
+            <th class="text-center col-sm-2" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_CRITICAL_ONLY</th>
+            <th class="text-center col-sm-2" translate>OBJECTS.TABSET.EMAILING_LIST.TITLE_ATTACK_LEVEL</th>
+            <td class="text-center">
+              <a href ng-click="addEmailingEntry()">
+                <i class="fa fa-plus-circle"></i>
+              </a>
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="row in attackEmailingTable.displayed">
+            <td class="text-center">
+              <input type="text" class="form-control input-xs" placeholder="IP/mask" ng-model="row.ipMask">
+            </td>
+            <td class="text-center">
+              <input type="email" class="form-control input-xs" placeholder="Email" ng-model="row.email">
+            </td>
+            <td class="text-center"><input type="checkbox" ng-true-value="'true'" ng-false-value="'false'" ng-model="row.onAttack"></td>
+            <td class="text-center"><input type="checkbox" ng-true-value="'true'" ng-false-value="'false'" ng-model="row.reports"></td>
+            <td class="text-center"><input type="checkbox" ng-true-value="'true'" ng-false-value="'false'" ng-model="row.onBlocks"></td>
+            <td class="text-center"><input type="checkbox" ng-true-value="'true'" ng-false-value="'false'" ng-model="row.criticalOnly"></td>
+            <td class="text-center">
+              <input type="text" class="form-control input-xs"
+                     placeholder="{{'COMMON.INPUT_VALUE_PLACEHOLDER' | translate}}" ng-model="row.attackLevel">
+            </td>
+            <td class="text-center">
+              <a href ng-click="deleteEmailingEntry(row)" class="text-danger">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7" class="text-center">
+              <div class="pull-right"
+                   st-pagination st-template="template/smart-table/pagination-custom.html"
+                   st-items-by-page="attackEmailingTable.itemsByPage" st-displayed-pages="attackEmailingTable.displayedPages">
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+</form>

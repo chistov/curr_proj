@@ -1,0 +1,17 @@
+RewriteEngine   on
+RewriteCond     %{REQUEST_FILENAME} !-f
+RewriteCond     %{REQUEST_FILENAME} !-d
+RewriteRule     ^all/?$ php/Api.php?action=objects&all   [L,QSA]
+RewriteRule     ^([0-9]+)/details/?$ php/Api.php?action=details&id=$1   [L,QSA]
+RewriteRule     ^draft/details/?$ php/Api.php?action=details&id=draft   [L,QSA]
+RewriteRule     ^save/?$ php/Api.php?action=save   [L,QSA]
+RewriteRule     ^remove/?$ php/Api.php?action=remove   [L,QSA]
+
+RewriteRule     ^([0-9]+)/rules/all/?$ php/Api.php?action=rules&id=$1   [L,QSA]
+RewriteRule     ^([0-9]+)/rules/add/?$ php/Api.php?action=ruleAdd&id=$1   [L,QSA]
+RewriteRule     ^([0-9]+)/rules/remove/?$ php/Api.php?action=ruleRemove&id=$1   [L,QSA]
+RewriteRule     ^([0-9]+)/rules/replace/?$ php/Api.php?action=ruleReplace&id=$1   [L,QSA]
+RewriteRule     ^([0-9]+)?/?reports/all/?$ php/Api.php?action=reports&id=$1&all   [L,QSA]
+RewriteRule     ^([0-9]+)?/?reports/interval/([0-9]+)/([0-9]+)/?$  php/Api.php?action=reports&id=$1&from=$2&to=$3   [L,QSA]
+
+RewriteRule     ^available-mitigation-measures-list/?$  php/Api.php?action=availableMitigationMeasuresList   [L,QSA]

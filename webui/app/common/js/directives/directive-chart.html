@@ -1,0 +1,43 @@
+<div class="panel panel-default" ng-class="{'panel-fullscreen': isFullscreen}">
+  <div class="panel-heading panel-heading-condensed clearfix">
+    <span class="panel-heading-title">
+      <span  style="border-right: 1px dotted #777;">
+        {{monitor.name}}
+      </span>
+      <small class="text-muted" style="padding: 0 5px;">
+        <span>{{monitor.metrics.labels.z}}</span>
+        &bull; <span>{{monitor.metrics.proto_ident_hr}}</span>
+        &bull; <span translate>{{monitor.metrics.description.sideName_l10n}}</span>
+        <span ng-show="monitor.metrics.diff">
+          &bull; <span translate>NETWORK.ANALYZER_TRAFFIC.CHARTSET.CHART_SETTINGS.METRICS.CHECKBOX_DIFF</span>
+        </span>
+        &bull; <span translate>NETWORK.ANALYZER_TRAFFIC.CHARTSET.CHART_SETTINGS.FILTERS.TITLE_COUNT</span>:
+        {{monitor.metrics.filters.length}}
+      </small>
+    </span>
+    <div class="pull-right">
+      <div class="btn-group btn-group-xs" role="group">
+        <a href class="btn" ng-click="refresh()">
+          <i class="fa fa-refresh"></i>
+        </a>
+        <a href class="btn" ng-click="edit()">
+          <i class="fa fa-cog"></i>
+        </a>
+        <a href class="btn" ng-click="toggleFullscreen()">
+          <i class="fa" ng-class="{'fa-compress': isFullscreen, 'fa-expand': !isFullscreen}"></i>
+        </a>
+        <a href class="btn" ng-click="toggleCollapse()">
+          <i class="fa fa-minus-circle"></i>
+        </a>
+        <a href class="btn" ng-click="close()">
+          <i class="fa fa-times-circle"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body panel-body-condensed" uib-collapse="!isOpen" ng-switch="monitor.chart">
+    <!-- chart here -->
+    <div chart2d ng-switch-when="twoD"></div>
+    <div chart3d ng-switch-when="threeD"></div>
+  </div>
+</div>

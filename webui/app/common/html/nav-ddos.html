@@ -1,0 +1,84 @@
+<style type="text/css">
+  .nav>.btn-group:hover>.dropdown-menu {
+    display: block;
+  }
+</style>
+
+<nav class="navbar navbar-theme navbar-static-top" role="navigation" ng-controller="krozNavController">
+  <a class="navbar-company" title="{{'COMMON.NT_LOGO_TITLE' | translate}}" target="_blank" ng-href="{{'COMMON.NT_LOGO_HREF' | translate}}"></a>
+
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" title="{{'COMMON.KROZ_LOGO_TITLE' | translate}}" ng-href="#/">
+        <div class="logo"></div>
+      </a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li ui-sref-active="active"><a ui-sref="state" translate>STATE.NAV_TITLE</a></li>
+      <li ui-sref-active="active" class="btn-group" uib-dropdown>
+        <a class="clickable" translate>NETWORK.NAV_TITLE</a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="network.analyzerTraffic" translate>NETWORK.ANALYZER_TRAFFIC.NAV_TITLE</a></li>
+          <!-- <li><a ui-sref="network.analyzerMetrics" translate>NETWORK.ANALYZER_METRICS.NAV_TITLE</a></li> -->
+          <li><a ui-sref="network.cleaner" translate>NETWORK.ANALYZER_BLOCKER.NAV_TITLE</a></li>
+        </ul>
+      </li>
+      <li restrict ui-sref-active="active" access="admin customer" ng-if="access"><a ui-sref="objects" translate>OBJECTS.NAV_TITLE</a></li>
+      <li ui-sref-active="active"><a ui-sref="attacks" translate>ATTACKS.NAV_TITLE</a></li>
+      <li ui-sref-active="active" class="btn-group" uib-dropdown>
+        <a class="clickable" translate>TRAFFIC.HEAD_NAV_TITLE</a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="traffic.manager" translate>TRAFFIC_MANAGER.NAV_TITLE</a></li></li>
+          <li><a ui-sref="traffic.urlblocker.prohibitedList" translate>URL_BLOCKER.NAV_TITLE</a></li>
+          <!-- <li><a ui-sref="traffic.trafficCptr" translate>TRAFFIC.NAV_TITLE</a></li></li> -->
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="btn-group" uib-dropdown ng-if="authUser.isAministrator()">
+        <a class="clickable" translate>SETTINGS.NAV_TITLE</a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="settings.users" translate>SETTINGS.USERS.NAV_TITLE</a></li></li>
+          <li><a ui-sref="settings.bgp.routers" translate>BGP.ROUTERS.NAV_TITLE</a></li></li>
+          <li><a ui-sref="settings.bgp.announces" translate>BGP.ANNOUNCES.NAV_TITLE</a></li></li>
+          <li><a ui-sref="settings.smtp" translate>SETTINGS.SMTP.NAV_TITLE</a></li></li>
+        </ul>
+        <!-- <a ui-sref="settings" translate>SETTINGS.NAV_TITLE</a> -->
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="btn-group" uib-dropdown>
+        <a type="button" class="clickable">
+          <i class="fa fa-user fa-fw"></i> {{authUser.name}} <!-- <i class="fa fa-caret-down"></i> -->
+        </a>
+        <ul class="dropdown-menu">
+          <li role="menu-item">
+            <a href ng-click="editAuthUser()">
+              <i class="fa fa-info fa-fw"></i>
+              <span translate>COMMON.LOGIN_FORW.USER_INFO</span>
+            </a>
+          </li>
+          <li role="menu-item">
+            <a href ng-click="logout()">
+              <i class="fa fa-sign-out fa-fw"></i>
+              <span translate>COMMON.LOGIN_FORW.BTN_LOGOUT</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="btn-group" uib-dropdown>
+        <a type="button" class="clickable">
+          <i class="fa fa-globe fa-fw"></i> {{currentLanguageKey}}
+        </a>
+        <ul class="dropdown-menu">
+          <li role="menu-item"><a href ng-click="changeLanguage('en')" translate>SETTINGS.LANGUAGE_EN</a></li>
+          <li role="menu-item"><a href ng-click="changeLanguage('ru')" translate>SETTINGS.LANGUAGE_RU</a></li>
+        </ul>
+      </li>
+      <li>
+        <navbar-notify></navbar-notify>
+      </li>
+    </ul>
+  </div>
+
+</nav>

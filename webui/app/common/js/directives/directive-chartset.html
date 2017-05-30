@@ -1,0 +1,13 @@
+<!-- 2d chartst -->
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="monitor in monitors.twoD">
+    <chart conf="monitor" index="$index"></chart>
+  </div>
+</div>
+
+<!-- 3d chartst -->
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12" ng-repeat="monitor in monitors.threeD">
+    <chart conf="monitor" index="$index"></chart>
+  </div>
+</div>

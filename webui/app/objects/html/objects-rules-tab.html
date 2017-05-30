@@ -1,0 +1,63 @@
+<style type="text/css">
+  .duration-font {
+    font-size: 12px;
+  }
+</style>
+<link href="app/common/css/dropdown.css" rel="stylesheet" type="text/css">
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="checkbox">
+      <label>
+        <input ng-model="isRulesOnline" ng-click="rulesUpdManager()" type="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty">Rules online update
+      </label>
+      <button type="button" style="margin: 10px" class="btn btn-default btn-sm" ng-click="delRules()" >
+        Delete Rules
+      </button>
+    </div>
+    <div class="row">
+      <form class="form-inline input-sm" name="myForm" style="margin-bottom: 15px">
+          <label translate>OBJECTS.TABSET.RULES.TITLE_DURATION</label>
+          <input style="width: 100px; font-size: 12px" type="text" class="form-control input-sm" ng-model="newRule.duration" required>
+
+          <select type="text" class="form-control input-sm duration-font" required ng-model="newRule.durationUnits">
+            <option value="s" translate>OBJECTS.TABSET.RULES.OPTION_DURATION_UNITS_SEC</option>
+            <option value="m" translate>OBJECTS.TABSET.RULES.OPTION_DURATION_UNITS_MIN</option>
+            <option value="h" translate>OBJECTS.TABSET.RULES.OPTION_DURATION_UNITS_HOUR</option>
+            <option value="d" translate>OBJECTS.TABSET.RULES.OPTION_DURATION_UNITS_DAYS</option>
+          </select>
+
+          <label translate>OBJECTS.TABSET.RULES.TITLE_TYPE</label>
+          <select class="form-control input-sm selectpicker units" name="repeatSelect" ng-model="newRule.type_str">
+            <option value="BLOCK">BLOCK</option>
+            <option value="SYNCOOKIE">SYNCOOKIE</option>
+            <option value="WHITE">WHITE</option>
+          </select>
+
+          <label>IP1</label>
+          <input type="text" class="form-control input-sm" ng-model="newRule.ip1" placeholder="IP/mask">
+
+          <label>PORT1</label>
+          <input type="text" class="form-control input-sm" ng-model="newRule.port1" placeholder="PORT">
+
+          <label>IP2</label>
+          <input type="text" class="form-control input-sm" ng-model="newRule.ip2" placeholder="IP/mask">
+
+          <label>PORT2</label>
+          <input type="text" class="form-control input-sm" ng-model="newRule.port2" placeholder="PORT">
+
+          <button ng-show="!currentRule" type="button" class="btn btn-default btn-sm" ng-click="addRule()" ng-disabled="myForm.$invalid" translate>
+            COMMON.BTN_ADD
+          </button>
+
+          <button ng-show="currentRule" type="button" class="btn btn-default btn-sm" ng-click="saveEditRule()">
+            Replace
+          </button>
+          <button ng-show="currentRule" type="button" class="btn btn-default btn-sm" ng-click="cancelEditRule()">
+            Cancel
+          </button>
+      </form>
+      <div id='rulesTree' ag-grid="rulesTree.tree" style="height: 600px;font-size: 12px" class="ag-bootstrap-tree"></div>
+    </div>
+  </div>
+</div>

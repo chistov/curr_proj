@@ -1,0 +1,121 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div clas="row">
+
+      <div class="col-sm-12">
+        <div class="form-inline pull-left">
+          <div class="form-group form-group-sm">
+            <label class="control-label input-sm" translate>OBJECTS.TABSET.ATTACK_REPORTS.LABEL_ON_PERIOD</label>
+          </div>
+          <div class="form-group form-group-sm">
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control"
+                     clear-text="{{'COMMON.BTN_CLEAR' | translate}}"
+                     current-text="{{'COMMON.BTN_TODAY' | translate}}"
+                     close-text="{{'COMMON.BTN_CLOSE' | translate}}"
+                     show-button-bar="false"
+                     uib-datepicker-popup datepicker-options="datepickerOptions"
+                     ng-model="currentObject.attackReports.filter.from.date"
+                     is-open="currentObject.attackReports.filter.from.opened"
+                     ng-disabled="currentObject.attackReports.filter.all"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datepickerOpen($event, currentObject.attackReports.filter.from)"
+                        ng-disabled="currentObject.attackReports.filter.all">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+          <span> - </span>
+          <div class="form-group form-group-sm">
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control"
+                     clear-text="{{'COMMON.BTN_CLEAR' | translate}}"
+                     current-text="{{'COMMON.BTN_TODAY' | translate}}"
+                     close-text="{{'COMMON.BTN_CLOSE' | translate}}"
+                     show-button-bar="false"
+                     uib-datepicker-popup datepicker-options="datepickerOptions"
+                     ng-model="currentObject.attackReports.filter.to.date"
+                     is-open="currentObject.attackReports.filter.to.opened"
+                     ng-disabled="currentObject.attackReports.filter.all"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datepickerOpen($event, currentObject.attackReports.filter.to)"
+                        ng-disabled="currentObject.attackReports.filter.all">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="currentObject.attackReports.filter.all">
+              <span translate>OBJECTS.TABSET.ATTACK_REPORTS.CHECKBOX_ALL_TIME</span>
+            </label>
+          </div>
+          <button class="btn btn-default btn-sm" ng-click="requestReports()" translate>COMMON.BTN_SHOW</button>
+        </div>
+
+        <div class="pull-right">
+          <small>
+            <span translate>OBJECTS.TABSET.ATTACK_REPORTS.LABEL_REPORTS_NUMBER</span>
+            {{currentObject.attackReports.data.length}}
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-striped table-condensed" st-table="attackReportsTable.displayed" st-safe-src="currentObject.attackReports.data" style="margin-top: 10px;">
+          <thead class="thead-sm">
+            <tr>
+              <th class="col-sm-2" st-sort="date" st-sort-default="reverse" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_DATE</th>
+              <th class="col-sm-1" st-sort="allAttacks" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_ATTACKS_TOTAL</th>
+              <th class="col-sm-1" st-sort="criticalAttacks" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_ATTACKS_CRITICAL</th>
+              <th class="col-sm-1" st-sort="attackers" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_ATTACKERS_TOTAL</th>
+              <th class="col-sm-1" st-sort="attacked" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_ATTACKED_TOTAL</th>
+              <th class="col-sm-2" st-sort="levelAverage" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_ATTACK_LEVEL_AVG</th>
+              <th class="col-sm-2" st-sort="levelMaximum" translate>OBJECTS.TABSET.ATTACK_REPORTS.TITLE_ATTACK_LEVEL_MAX</th>
+              <th class=""></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="row in attackReportsTable.displayed" ng-class="{'danger': row.criticalAttacks}">
+              <td>{{row.date}}</td>
+              <td>{{row.allAttacks}}</td>
+              <td>{{row.criticalAttacks}}</td>
+              <td>{{row.attackers}}</td>
+              <td>{{row.attacked}}</td>
+              <td>{{row.levelAverage | formatSize}}</td>
+              <td>{{row.levelMaximum | formatSize}}</td>
+              <td class="text-right">
+                <a href ng-click="attacksDetails(row)">
+                  <small>
+                    <span translate>OBJECTS.TABSET.ATTACK_REPORTS.BTN_ATTACKS</span>
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </small>
+                </a>
+              </td>
+            </tr>
+            <tr ng-show="attackReportsTable.displayed.length === 0">
+              <td colspan="8" class="text-center" translate>OBJECTS.TABSET.ATTACK_REPORTS.LABEL_NO_REPORTS</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="8" class="text-center">
+                <div class="pull-right"
+                     st-pagination st-template="template/smart-table/pagination-custom.html"
+                     st-items-by-page="attackReportsTable.itemsByPage" st-displayed-pages="attackReportsTable.displayedPages">
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+</div>

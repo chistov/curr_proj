@@ -1,0 +1,122 @@
+/* NOTIFICATION CONTROL */
+.notification-container {
+  top: 2px;
+  position: relative;
+}
+
+.notification-counter {
+  position: absolute;
+  top: -2px;
+  left: 12px;
+
+  background-color: #d9534f;
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 3px;
+  font: 8px Verdana;
+}
+
+.notification-container,
+.notification-popover {
+  font-size: 0.9em;
+}
+
+.notification-container .alert,
+.notification-popover .alert {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.notification-popover .tabset > .nav > li > a {
+  padding: 1px 5px;
+}
+
+.navbar-inverse .notification-container a.active {
+  color: #fff;
+}
+
+.notification-container > .popover {
+  display: block;
+  top: 25px;
+  left: -100px;
+  right: auto;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.notification-container > .popover.bottom > .arrow {
+  margin-left: -104px;
+}
+
+.notification-container > .popover.bottom > .popover-content {
+  padding: 10px 10px 0 10px;
+}
+
+.notification-container .messages {
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.notification-container .tab-content {
+  padding: 10px 0;
+}
+
+.notification-container .tab-content .buttons-addon {
+  margin-bottom: 10px;
+}
+
+.notification-container .alert {
+  word-break: break-all;
+}
+
+.notification-container .alert-dismissable .close,
+.notification-container .alert-dismissible .close {
+  right: auto;
+}
+
+.notification-container .alert .alert-link {
+  font-weight: normal;
+}
+
+/* NOTIFICATION SIDEBAR */
+.notification-container .sidebar {
+  position: fixed;
+  right: 10px;
+  top: 51px; /* nav header + logo  */
+  z-index: 1002;
+  pointer-events: none;
+  background: none;
+  /*background-color: #ddd;*/
+  width: 400px;
+  height: 100%;
+  padding: 10px;
+}
+
+/* LOADING INDICATOR CONTROL */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  background: #fff;
+  cursor: wait;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.loading-indicator {
+  width: 100px;
+  height: 100px;
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -50px;
+}
+
+.sk-three-bounce .sk-child {
+  background-color: #3d99d8;
+}

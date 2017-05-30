@@ -1,0 +1,57 @@
+<h5>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-home"></i></a></li>
+    <li class="active" translate>NETWORK.ANALYZER_BLOCKER.BREADCRUMB_TITLE</li>
+  </ol>
+</h5>
+
+<div class="controls clearfix">
+  <div class="pull-left">
+    <div class="form-inline form-normal-labels">
+      <!-- <div class="form-group form-group-sm">
+        <select class="form-control" ng-model="timeFilter.timeInterval" ng-disabled="timeFilter.autoUpdate">
+          <option value="5">5 секунд</option>
+          <option value="300">5 минут</option>
+          <option value="3600">1 час</option>
+          <option value="86400">1 день</option>
+        </select>
+      </div> -->
+      <div class="form-group form-group-sm">
+        <input type="text" class="form-control" ng-model="filter.from"
+               ui-mask="{{'99.99.9999 99:99:99'}}"
+               placeholder="{{'COMMON.INPUT_DATETIME_PLACEHOLDER' | translate}}"
+               ng-disabled="filter.autoUpdate">
+      </div>
+      <span> - </span>
+      <div class="form-group form-group-sm">
+        <input type="text" class="form-control" ng-model="filter.to"
+               ui-mask="{{'99.99.9999 99:99:99'}}"
+               placeholder="{{'COMMON.INPUT_DATETIME_PLACEHOLDER' | translate}}"
+               ng-disabled="filter.autoUpdate">
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="filter.autoUpdate">
+          <span translate>NETWORK.ANALYZER_BLOCKER.CONTROLS.CHECKBOX_AUTOUPDATE</span>
+        </label>
+      </div>
+
+      <button class="btn btn-default btn-sm" ng-disabled="filter.autoUpdate" ng-click="apply()"translate>COMMON.BTN_APPLY</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6 col-md-6" ng-repeat="monitor in monitors">
+    <div class="panel panel-default">
+      <div class="panel-heading panel-heading-condensed">
+        {{monitor.name}}
+      </div>
+      <div class="panel-body panel-body-condensed">
+        <div id="{{monitor.id}}" style="height:300px;"></div>
+      </div>
+    </div>
+  </div>
+</div>

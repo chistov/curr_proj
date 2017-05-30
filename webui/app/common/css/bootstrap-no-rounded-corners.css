@@ -1,0 +1,38 @@
+/* remove all rounded corners */
+code,
+kbd,
+pre,
+.img-rounded,
+.img-thumbnail,
+.img-circle,
+.form-control,
+.btn,
+.btn-link,
+.dropdown-menu,
+.input-group-addon,
+.input-group-btn,
+.nav-tabs a,
+.nav-pills a,
+.navbar,
+.navbar-toggle,
+.icon-bar,
+.breadcrumb,
+.pagination,
+.pager *,
+.label,
+.badge,
+.jumbotron,
+.thumbnail,
+.alert,
+.progress,
+.panel,
+.well,
+.modal-content,
+.tooltip-inner,
+.popover,
+.popover-title,
+.carousel-indicators li {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}

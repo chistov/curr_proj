@@ -1,0 +1,158 @@
+{
+  "OBJECTS": {
+    "NAV_TITLE": "Объекты",
+    "BREADCRUMB_TITLE": "Объекты",
+
+    "CONTROLS": {},
+
+    "TREE": {
+      "INPUT_FILTER_PLACEHOLDER": "Фильтр"
+    },
+
+    "TABSET": {
+      "PARAMETERS": {
+        "TITLE": "Параметры",
+
+        "LABEL_NEW": "новый",
+        "NAME_NEW": "Новый объект",
+        "LABEL_NAME": "Название",
+        "INPUT_NAME_PLACEHOLDER": "Название",
+
+        "LABEL_VALUE": "Значение",
+        "INPUT_VALUE_PLACEHOLDER": "Значение",
+
+        "TITLE_LEGITIMATE_BPS": "Безопасный уровень (bps)",
+        "TITLE_LEGITIMATE_PPS": "Безопасный уровень (pps)",
+        "TITLE_HIGH_SEVERITY_BPS": " High severity уровень (bps)",
+        "TITLE_HIGH_SEVERITY_PPS": "High severity уровень (pps)",
+
+        "CAPTION_LEVELS": "Уровни детектирования атак и стратегия противодействия",
+        "BTN_LEVELS_ADVANCED_FORM": "расширенные",
+        "BTN_LEVELS_SIMPLE_FORM": "базовые",
+
+        "TITLE_LEVEL": "Уровень",
+        "TITLE_LEVEL_ENABLED": "Включен",
+        "TITLE_LEVEL_SIGNAL": "СИГНАЛ",
+        "TITLE_LEVEL_CLEAN": "ОЧИСТКА",
+        "TITLE_LEVEL_CRITICAL": "КРИТИЧЕСКИЙ",
+        "TITLE_LEVEL_PROXY": "ПРОКСИ",
+
+        "TITLE_BLOCK_TIME_ATTACKER": "Длительность правила по атакующему",
+        "TITLE_BLOCK_TIME_ATTACKED": "Длительность правила по атакуемому",
+
+        "TITLE_MODE_AVG": "Коэффициент превышения среднего",
+        "UNITS_MODE_AVG": "(множитель)",
+
+        "TITLE_MODE_MAX": "Предельный размер пика",
+        "UNITS_MODE_MAX": "(значение в секунду)",
+
+        "TITLE_MODE_ABNORMAL": "Фильтрация только аномального трафика",
+        "TITLE_MODE_PROXY": "Разрешить включение прокси",
+
+        "TITLE_DETECTION_LEVELS": "Уровни детектирования",
+
+        "TITLE_MITIGATION_STRATEGY": "Стратегия противодействия",
+        "TITLE_MITIGATION_MEASURES": "Меры противодействия",
+        "TITLE_MITIGATION_STAGE": "Стадия",
+        "TITLE_MEASURES": "Меры",
+        "TITLE_MEASURE_ENABLED": "Включен",
+        "TITLE_MEASURE_DETAILS": "Детали",
+
+        "MITIGATION_STAGE_DETAILS": {
+            "TITLE": "Параметры стадии противодействия",
+            "PERCENT_TITLE": "Процент противодействия",
+            "ENABLE_TIMEOUT_TITLE": "Таймаут включения"
+        }
+      },
+
+      "EMAILING_LIST": {
+        "TITLE": "Список уведомлений",
+
+        "CAPTION": "Рассылка информации об атаках",
+        "TITLE_IPMASK": "IP/mask",
+        "TITLE_EMAIL": "Email",
+        "TITLE_ON_ATTACK": "При атаке",
+        "TITLE_REPORTS": "Отчеты",
+        "TITLE_ON_BLOCK": "Блокировки",
+        "TITLE_CRITICAL_ONLY": "Только критические",
+        "TITLE_ATTACK_LEVEL": "Сила свыше (Мбит/с)"
+      },
+
+      "ATTACK_REPORTS": {
+        "TITLE": "Отчеты об атаках",
+
+        "LABEL_ON_PERIOD": "За период",
+        "CHECKBOX_ALL_TIME": "За всё время",
+
+        "LABEL_REPORTS_NUMBER": "Сформировано отчетов:",
+
+        "TITLE_DATE": "Дата",
+        "TITLE_ATTACKS_TOTAL": "Всего атак",
+        "TITLE_ATTACKS_CRITICAL": "Критических атак",
+        "TITLE_ATTACKERS_TOTAL": "Атакующих",
+        "TITLE_ATTACKED_TOTAL": "Атакуемых",
+        "TITLE_ATTACK_LEVEL_AVG": "Средний уровень атак (бит/с)",
+        "TITLE_ATTACK_LEVEL_MAX": "Максимальный уровень атаки (бит/с)",
+
+        "BTN_ATTACKS": "Атаки",
+        "LABEL_NO_REPORTS": "Нет отчетов за выбранный период времени"
+      },
+
+      "RULES": {
+        "TITLE": "Активные правила",
+
+        "LABEL_WHITE_LIST": "Список исключений",
+
+        "LABEL_RULES_NUMBER": "Активных правил:",
+
+        "TITLE_BEGIN": "Начало",
+        "TITLE_DURATION": "Длительность",
+        "TITLE_END": "Окончание",
+        "TITLE_TYPE": "Тип",
+
+        "LABEL_NO_RULES": "Нет активных правил",
+
+        "OPTION_DURATION_UNITS_SEC": "секунды",
+        "OPTION_DURATION_UNITS_MIN": "минуты",
+        "OPTION_DURATION_UNITS_HOUR": "часы",
+        "OPTION_DURATION_UNITS_DAYS": "дни"
+      },
+
+      "ANALYZER_TRAFFIC": {
+        "TITLE": "Анализ трафика"
+      }
+    },
+
+    "MITIGATION_MEASURES": {
+        "SIGNATURE": {
+            "DST_PREFIX" : "Префикс назназчения",
+            "SRC_PREFIX" : "Префикс источника",
+            "IP_PROTOCOL" : "IP протокол",
+            "PORT": "Порт",
+            "SRC_PORT": "Порт источника",
+            "DST_PORT": "Порт назачения",
+            "ICMP_TYPE": "ICMP тип",
+            "ICMP_CODE": "ICMP код",
+            "TCP_FLAGS": "TCP флаги",
+            "PKT_LENGTH": "Длина пакета",
+            "TOS": "TOS",
+            "IP_FRAGMENT": "IP фрагменты",
+            "TTL": "TTL",
+            "REQUEST_USER": "Запрашивать пользователя перед применением сигнатуры"
+        }
+    },
+
+
+    "BACKEND_NOTIFICATIONS": {
+      "TITLE_OBJECT_SAVE_SUCCESS": "Параметры объекта '%s' успешно сохранены",
+      "TITLE_OBJECT_CREATE_SUCCESS": "Объект '%s' успешно создан",
+      "TITLE_OBJECT_DELETE_SUCCESS": "Объект(ы) успешно удален(ы)",
+
+      "TITLE_WHITELIST_SAVE_SUCCESS": "Список исключений успешно обновлен",
+
+      "TITLE_RULE_ADD_SUCCESS": "Команда применения правила успешно выполнена",
+      "TITLE_RULE_DELETE_SUCCESS": "Команда(ы) удаления правил(а) успешно выполнена(ы)",
+      "TITLE_RULE_UPDATE_SUCCESS": "Команда обновления правила успешно выполнена"
+    }
+  }
+}

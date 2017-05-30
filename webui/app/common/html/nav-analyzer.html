@@ -1,0 +1,36 @@
+<style type="text/css">
+  .nav>.btn-group:hover>.dropdown-menu {
+    display: block;
+  }
+</style>
+
+<nav class="navbar navbar-theme navbar-static-top" role="navigation">
+  <a class="navbar-company" title="{{'COMMON.NT_LOGO_TITLE' | translate}}" target="_blank" ng-href="{{'COMMON.NT_LOGO_HREF' | translate}}"></a>
+
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" title="{{'COMMON.KROZ_LOGO_TITLE' | translate}}" ng-href="#/">
+        <div class="logo"></div>
+      </a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li ui-sref-active="active" class="btn-group" uib-dropdown>
+        <a class="clickable" translate>NETWORK.NAV_TITLE</a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="network.analyzerTraffic" translate>NETWORK.ANALYZER_TRAFFIC.NAV_TITLE</a></li>
+          <!-- <li><a ui-sref="network.analyzerMetrics" translate>NETWORK.ANALYZER_METRICS.NAV_TITLE</a></li> -->
+        </ul>
+      </li>
+      <li ui-sref-active="active"><a ui-sref="traffic" translate>TRAFFIC.NAV_TITLE</a></li>
+      <li ui-sref-active="active"><a ui-sref="settings" translate>SETTINGS.NAV_TITLE</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="btn-group" uib-dropdown>
+        <navbar-notify></navbar-notify>
+      </li>
+    </ul>
+  </div>
+
+</nav>

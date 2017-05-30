@@ -1,0 +1,167 @@
+.ag-bootstrap-tree .ag-root {
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: inherit;
+}
+.ag-bootstrap-tree .ag-cell {
+  padding-left: 4px;
+  padding-right: 4px;
+  /*padding: 2px;*/
+}
+.ag-bootstrap-tree .ag-cell .leaf {
+  margin-right: 4px;
+  color: #42aaff;
+}
+.ag-bootstrap-tree .ag-cell-focus {
+  border: 1px solid #a9a9a9;
+}
+.ag-bootstrap-tree .ag-cell-no-focus {
+  border-right: 1px solid #ddd;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.ag-bootstrap-tree .ag-pinned-header {
+  background: -webkit-linear-gradient(#fff, #f5f5f5);
+  background: -moz-linear-gradient(#fff, #f5f5f5);
+  background: -o-linear-gradient(#fff, #f5f5f5);
+  background: -ms-linear-gradient(#fff, #f5f5f5);
+  background: linear-gradient(#fff, #f5f5f5);
+  border-bottom: 1px solid #ddd;
+}
+.ag-bootstrap-tree .ag-header-container {
+  background: -webkit-linear-gradient(#fff, #f5f5f5);
+  background: -moz-linear-gradient(#fff, #f5f5f5);
+  background: -o-linear-gradient(#fff, #f5f5f5);
+  background: -ms-linear-gradient(#fff, #f5f5f5);
+  background: linear-gradient(#fff, #f5f5f5);
+  border-bottom: 1px solid #ddd;
+}
+.ag-bootstrap-tree .ag-header-cell {
+  border-right: 1px solid #ddd;
+}
+.ag-bootstrap-tree .ag-header-group-cell {
+  border-right: 1px solid #ddd;
+}
+.ag-bootstrap-tree .ag-header-group-cell-with-group {
+  border-bottom: 1px solid #ddd;
+}
+.ag-bootstrap-tree .ag-header-cell-label {
+  padding: 4px 2px 4px 2px;
+}
+.ag-bootstrap-tree .text-right .ag-header-cell-label {
+  text-align: right;
+}
+.ag-bootstrap-tree .text-left .ag-header-cell-label {
+  text-align: left;
+}
+.ag-bootstrap-tree .ag-header-cell-text {
+  padding-left: 2px;
+}
+.ag-bootstrap-tree .ag-header-group-cell-label {
+  padding: 4px;
+  font-weight: bold;
+}
+.ag-bootstrap-tree .ag-header-group-text {
+  margin-right: 2px;
+}
+.ag-bootstrap-tree .ag-header-cell-menu-button {
+  padding: 2px;
+  margin-top: 4px;
+  border: 1px solid transparent;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; /* When using bootstrap, box-sizing was set to 'border-box' */
+}
+.ag-bootstrap-tree .ag-header-cell-menu-button:hover {
+  border: 1px solid #ddd;
+}
+.ag-bootstrap-tree .ag-header-icon {
+}
+.ag-bootstrap-tree .ag-dark .ag-header-expand-icon:hover {
+  cursor: pointer;
+}
+.ag-bootstrap-tree .ag-row-odd {
+  background-color: #f6f6f6;
+}
+.ag-bootstrap-tree .ag-row-even {
+  background-color: #fff;
+}
+.ag-bootstrap-tree .ag-loading-panel {
+  background-color: rgba(255,255,255,0.5);
+}
+.ag-bootstrap-tree .ag-loading-center {
+  background-color: #fff;
+  border: 1px solid #a9a9a9;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.ag-bootstrap-tree .ag-body {
+  background-color: #fff;
+}
+.ag-bootstrap-tree .ag-row-selected {
+  background-color: #d9edf7;
+}
+.ag-bootstrap-tree .ag-group-cell-entire-row {
+  background-color: #aaa;
+  /*padding: 4px;*/
+}
+.ag-bootstrap-tree .ag-footer-cell-entire-row {
+  background-color: #aaa;
+  padding: 4px;
+}
+.ag-bootstrap-tree .ag-group-cell {
+  /*font-style: italic;*/
+}
+.ag-bootstrap-tree .ag-group-cell .branch {
+  margin-right: 4px;
+  color: #dbc056;
+}
+.ag-bootstrap-tree .ag-footer-cell {
+  font-style: italic;
+}
+.ag-bootstrap-tree .ag-filter-checkbox {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+.ag-bootstrap-tree .ag-filter-header-container {
+  border-bottom: 1px solid #d3d3d3;
+}
+.ag-bootstrap-tree .ag-filter {
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+}
+.ag-bootstrap-tree .ag-selection-checkbox {
+  margin: 0 4px 0 0;
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}
+.ag-bootstrap-tree .ag-expand-icon {
+  margin-right: 4px;
+}
+.ag-bootstrap-tree .ag-paging-panel {
+  padding: 4px;
+}
+.ag-bootstrap-tree .ag-paging-button {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.ag-bootstrap-tree .ag-paging-row-summary-panel {
+  display: inline-block;
+  width: 300px;
+}
+
+.ag-bootstrap-tree .ag-cell-edit-input {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  height: 100%;
+  margin: 0;
+  outline: 0 none;
+  padding: 0;
+  width: 100%;
+}

@@ -1,0 +1,444 @@
+<style type="text/css">
+  .form-table {
+    font-size: 12px;
+  }
+  .form-table td {
+    vertical-align: middle !important;
+    border: none !important;
+  }
+  .form-table .dt {
+    font-weight: bolder;
+    text-align: right;
+    border-right: 1px solid #ddd;
+  }
+  .form-table .dt .units {
+    font-weight: normal;
+  }
+  .form-table .right-bordered {
+    border-right: 1px solid #ddd;
+  }
+  .form-table .form-control {
+    border: 1px solid #eee;
+  }
+  .form-table .level-th {
+    padding-left: 11px;
+  }
+
+  .btn-mitigation {
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  .mitigation-measures {
+    font-size: 12px;
+  }
+
+  .mitigation-measures th {
+    padding: 5px 10px !important;
+  }
+
+  .mitigation-measures .dropdown-menu {
+    font-size: inherit;
+  }
+  .mitigation-measures .dropdown-menu>li>a {
+    padding: 2px 10px;
+  }
+
+  .mitigation-measures td {
+    vertical-align: middle !important;
+    padding: 5px 10px !important;
+  }
+
+  .buttons-bar {
+    font-size: 14px;
+  }
+
+  .duration-group {
+    width: 100%;
+  }
+  .duration-group .units {
+    width: 30% !important;
+    padding: 0;
+    border-left: 0;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+
+  .duration-group .value {
+    width: 65% !important;
+  }
+
+  .panel-heading-transparent {
+      background-color: transparent !important;
+  }
+</style>
+
+<form class="form-horizontal">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <table class="table table-condensed form-table">
+        <thead>
+          <tr>
+            <td class="col-lg-1 text-right">Id</td>
+            <td class="col-lg-2" translate>OBJECTS.TABSET.PARAMETERS.LABEL_NAME</td>
+            <td class="col-lg-2" translate>OBJECTS.TABSET.PARAMETERS.LABEL_VALUE</td>
+            <td class="col-lg-1" translate>OBJECTS.TABSET.PARAMETERS.TITLE_LEGITIMATE_BPS</td>
+            <td class="col-lg-1" translate>OBJECTS.TABSET.PARAMETERS.TITLE_LEGITIMATE_PPS</td>
+            <td class="col-lg-1" translate>OBJECTS.TABSET.PARAMETERS.TITLE_HIGH_SEVERITY_BPS</td>
+            <!-- <td class="col-lg-1" translate>OBJECTS.TABSET.PARAMETERS.TITLE_HIGH_SEVERITY_PPS</td> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-right">{{currentObject.id}}</td>
+            <td>
+              <input type="text" class="form-control input-sm"
+                     placeholder="{{'OBJECTS.TABSET.PARAMETERS.INPUT_NAME_PLACEHOLDER' | translate}}"
+                     ng-model="currentObject.ddosObject.name" ng-disabled="currentObject.id == 0">
+            </td>
+            <td>
+              <div class="form-group-sm" textarea-popup="currentObject.ddosObject.value" placeholder="IP/mask" is-disabled="currentObject.id == 0 || !authUser.isAministrator()"></div>
+            </td>
+            <td>
+              <input type="text" class="form-control input-sm"
+                     ng-model="currentObject.ddosObject.safe_level_bps" kroz-mask-number>
+            </td>
+            <td>
+              <input type="text" class="form-control input-sm"
+                     ng-model="currentObject.ddosObject.safe_level_pps" kroz-mask-number>
+            </td>
+            <td>
+              <input type="text" class="form-control input-sm"
+                     ng-model="currentObject.ddosObject.high_severity_bps" kroz-mask-number>
+            </td>
+            <!-- <td>
+              <input type="text" class="form-control input-sm"
+                     ng-model="currentObject.ddosObject.high_severity_pps" kroz-mask-number>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row top-bordered">
+    <div class="col-sm-12 col-lg-12">
+      <p>
+        <span class="caption" style="padding-right: 5px;" translate>OBJECTS.TABSET.PARAMETERS.CAPTION_LEVELS</span>
+        <button type="button" class="btn btn-default btn-xs" ng-click="addDdosLevel()" translate>COMMON.BTN_ADD</button>
+      </p>
+
+      <div class="panel panel-default" style="font-size: 12px;" ng-repeat="(key, lvl) in currentObject.ddosObject.ddos_levels" ng-if="lvl.enabled">
+        <div class="panel-heading panel-heading-condensed clearfix">
+          <div class="pull-left">
+            <!-- <input type="text" class="form-control input-xs" ng-model="lvl.name" required> -->
+            <strong>{{key}}</strong>
+          </div>
+          <div class="pull-right">
+            <div class="btn-group btn-group-xs" role="group">
+              <!-- <a href class="btn" ng-click="toggleCollapse()">
+                <i class="fa fa-minus-circle"></i>
+              </a> -->
+              <a href class="btn text-danger" ng-click="removeDdosLevel(key)">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-condensed">
+          <div class="row">
+
+            <!-- Detection levels -->
+            <div class="col-lg-4">
+              <div class="panel panel-default panel-compact">
+                <div class="panel-heading panel-heading-condensed panel-heading-transparent">
+                  <strong class="" style="padding-right: 5px; border-right: 1px solid #ddd" translate>OBJECTS.TABSET.PARAMETERS.TITLE_DETECTION_LEVELS</strong>
+                  <a href translate ng-click="lvl.advanced_edit_mode = true" ng-show="!lvl.advanced_edit_mode">OBJECTS.TABSET.PARAMETERS.BTN_LEVELS_ADVANCED_FORM</a>
+                  <a href translate ng-click="lvl.advanced_edit_mode = false" ng-show="lvl.advanced_edit_mode">OBJECTS.TABSET.PARAMETERS.BTN_LEVELS_SIMPLE_FORM</a>
+                </div>
+                <table class="table table-condensed form-table">
+                  <thead>
+                    <tr>
+                      <th class="col-md-4 text-right" translate>OBJECTS.TABSET.PARAMETERS.TITLE_LEVEL</th>
+                      <th class="col-md-4 text-left level-th">
+                        <span translate>OBJECTS.TABSET.PARAMETERS.TITLE_MODE_AVG</span>
+                        <span class="text-muted" translate>OBJECTS.TABSET.PARAMETERS.UNITS_MODE_AVG</span>
+                      </th>
+                      <th class="col-md-4 text-left level-th">
+                        <span translate>OBJECTS.TABSET.PARAMETERS.TITLE_MODE_MAX</span>
+                        <span class="text-muted" translate>OBJECTS.TABSET.PARAMETERS.UNITS_MODE_MAX</span>
+                      </th>
+                    </tr>
+
+                  </thead>
+
+                  <!-- SIMPLE LIMITS FORM -->
+                  <tbody class="tbody-level" ng-show="!lvl.advanced_edit_mode">
+                    <tr>
+                      <td class="dt">L2 <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.l2" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.l2" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">TCP <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.tcp" kroz-mask-number></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.tcp" kroz-mask-number></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">UDP <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.udp" kroz-mask-number></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.udp" kroz-mask-number></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">L7 <span class="units">(tps)</span></td>
+                      <td class=""><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.l7" kroz-mask-number></td>
+                      <td class=""><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.l7" kroz-mask-number></td>
+                    </tr>
+                  </tbody>
+
+                  <!-- ADVANCED LIMITS FORM -->
+                  <tbody class="tbody-level" ng-show="lvl.advanced_edit_mode">
+                    <tr>
+                      <td class="dt">L2 <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.l2" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.l2" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">ICMP <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.icmp" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.icmp" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">IP malformed fragments <span class="units">(pps)</span></td>
+                      <td></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.ip_fragments" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">TCP <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.tcp" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.tcp" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">TCP malformed <span class="units">(pps)</span></td>
+                      <td></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.tcp_malformed" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">UDP <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.udp" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.udp" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">DNS <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.dns" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.dns" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">NTP <span class="units">(pps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.ntp" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.ntp" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">SIP <span class="units">(rps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.sip" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.sip" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">HTTP flood <span class="units">(rps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.http_flood" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.http_flood" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">HTTP bad <span class="units">(rps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.http_bad" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.http_bad" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">HTTP slow <span class="units">(rps)</span></td>
+                      <td></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.http_slow" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">SMTP <span class="units">(mps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.smtp" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.smtp" kroz-mask-number="0"></td>
+                    </tr>
+                    <tr>
+                      <td class="dt">FTP <span class="units">(cps)</span></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.avg.ftp" kroz-mask-number="0"></td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.limits.max.ftp" kroz-mask-number="0"></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- <table class="table table-condensed form-table" ng-show="lvl.advanced_edit_mode">
+                  <caption>Additional</caption>
+                  <thead>
+                    <tr>
+                      <th class="col-md-4 text-right">Parameter</th>
+                      <th class="col-md-4">Value</th>
+                      <th class="col-md-4"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="dt">Wide distributed peers</td>
+                      <td><input type="text" class="form-control input-xs" ng-model="lvl.peers_limit" kroz-mask-number="0"></td>
+                    </tr>
+                  </tbody>
+                </table> -->
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+
+              <div class="panel panel-default panel-compact mitigation-measures">
+                <div class="panel-heading panel-heading-condensed panel-heading-transparent">
+                  <strong class="" translate>OBJECTS.TABSET.PARAMETERS.TITLE_MITIGATION_STRATEGY</strong>
+                </div>
+
+                <!-- Measures table -->
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th class="col-md-2" translate>OBJECTS.TABSET.PARAMETERS.TITLE_MITIGATION_STAGE</th>
+                      <th class="col-md-8" translate>OBJECTS.TABSET.PARAMETERS.TITLE_MITIGATION_MEASURES</th>
+                      <th class="text-right buttons-bar col-xs-2">
+                        <button class="btn btn-default btn-xs" ng-click="addMitigationSet(lvl.mitigation)" translate>COMMON.BTN_ADD</button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="mitigation in lvl.mitigation">
+                      <td><span translate>OBJECTS.TABSET.PARAMETERS.TITLE_MITIGATION_STAGE</span> {{$index}}</td>
+                      <td>
+                        <div class="btn-group btn-mitigation" uib-dropdown ng-repeat="(measure, measureOpts) in mitigation.measures">
+                          <button type="button" class="btn btn-default btn-xs" uib-dropdown-toggle>
+                            {{measure}} <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem"><a href ng-click="editMitigationMeasure(mitigation.measures, measure, measureOpts )" translate>COMMON.BTN_EDIT</a></li>
+                            <li role="menuitem"><a href ng-click="removeMitigationMeasure(mitigation.measures, measure)" translate>COMMON.BTN_REMOVE</a></li>
+                          </ul>
+                        </div>
+                        <div class="btn-group btn-mitigation" uib-dropdown>
+                          <button type="button" class="btn btn-default btn-xs" uib-dropdown-toggle>
+                            <i class="fa fa-plus"></i>
+                          </button>
+                          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem" ng-repeat="(availableMeasure, availableMeasurePartial) in availableMitigationMeasures"><a href ng-click="addMitigationMeasure(mitigation.measures, availableMeasure, availableMeasurePartial)">{{availableMeasure}}</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td class="text-right buttons-bar" ng-if="mitigation.percent != '100'">
+                        <button type="button" class="btn btn-default btn-xs" ng-click="editMitigationDetails(mitigation)" translate>OBJECTS.TABSET.PARAMETERS.TITLE_MEASURE_DETAILS</button>
+                        <a href class="text-danger" ng-click="removeMitigationSet(lvl.mitigation, $index)">
+                          <i class="fa fa-times-circle"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- TO IMPLEMENT -->
+      <!-- <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Режим</label>
+        <div class="col-sm-5">
+          <select class="form-control">
+            <option>Мягкий</option>
+            <option>Средний</option>
+            <option>Жесткий</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Разрешенные всплески трафика до (Мбит/c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" ng-model="currentObject.ddos.level_critical">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <div class="col-sm-offset-7 col-sm-5">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="currentObject.ddos.detect_tcp"> Обнаружение атак TCP
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Уровень блокирования TCP трафика (Мбит/c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.level_tcp">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <div class="col-sm-offset-7 col-sm-5">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="currentObject.ddos.detect_udp"> Обнаружение атак UDP
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Уровень блокирования UDP трафика (Мбит/c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.level_udp">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Уровень блокирования DNS (.../c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.level_dns">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Уровень блокирования NTP (.../c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.level_ntp">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Уровень блокирования SMTP (.../c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.level_smtp">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Уровень блокирования "HTTP slow" (.../c)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.level_http_slow">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Время блокирования атакущего (сек)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.block_time_attacker">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-7 control-label">Время блокирования атакуемого (сек)</label>
+        <div class="col-sm-5">
+          <input type="number" class="form-control" placeholder="Значение" ng-model="currentObject.ddos.block_time_attacked">
+        </div>
+      </div> -->
+
+
+    </div>
+  </div>
+
+</form>
